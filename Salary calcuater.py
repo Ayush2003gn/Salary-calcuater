@@ -8,6 +8,9 @@ def database():
     )
     return employees    
 def salary(x):
+    # HRA = 15% of basic salary
+    # DA = 10% of basic salary
+    # TA = 20.2% of basic salary
     hra = 0.15 * x
     da = 0.10 * x
     ta = 0.202 * x
@@ -18,7 +21,7 @@ def salary(x):
 
     
 user = input("Enter employee ID: ")
-for emp in database():
+for emp in database(): #This loop accesses each employee record from the database one by one.
     if emp[0] == int(user):
         print(f"Employee Name: {emp[1]}, Basic Salary: {emp[2]}")
         print("-------------------------------")
