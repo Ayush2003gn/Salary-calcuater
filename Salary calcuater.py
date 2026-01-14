@@ -21,15 +21,21 @@ def salary(x):
 
     
 user = input("Enter employee ID: ")
+try:
+    user = int(user)
+except ValueError:
+    user = None
+except TypeError:
+    user = None
 for emp in database(): #This loop accesses each employee record from the database one by one.
-    if emp[0] == int(user):
+    if emp[0] == user:
         print(f"Employee Name: {emp[1]}, Basic Salary: {emp[2]}")
         print("-------------------------------")
         salary(emp[2])
         print("-------------------------------")
         break
 
-if int(user) > 5 :
+if user == None: 
     print("ID not found")
-elif user == None:
+elif user > 5:
     print("No Input")
