@@ -28,5 +28,8 @@ for emp in database(): #This loop accesses each employee record from the databas
         salary(emp[2])
         print("-------------------------------")
         break
-    else:
-        print("ID not found")
+
+if int(user) > 5 :
+    print("ID not found")
+elif user == None:
+    print("No Input")
