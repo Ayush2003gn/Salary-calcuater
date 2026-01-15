@@ -14,3 +14,5 @@ Step-5 :- Repeat the following steps for each employee record:
 Step-6 :- If employee ID is NONE, display “ID not found”.
 Step-7 :- Else if employee ID is greater than 5, display “No Input”.
 Step-8 :- Stop the program.
+
+##[You Can Clone code From here](https://github.com/Ayush2003gn/Salary-calcuate)
