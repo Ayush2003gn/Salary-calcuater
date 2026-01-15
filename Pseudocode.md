@@ -1,25 +1,41 @@
-START
+DEFINE function database()
+    STORE employees as list of tuples
+    RETURN employees
+END FUNCTION
 
-DISPLAY "Employee Database"
+DEFINE function salary(x)
+    hra ← 0.15 × x
+    da  ← 0.10 × x
+    ta  ← 0.202 × x
+    gross ← x + hra + da + ta
 
-INPUT emp_id
+    PRINT hra, da, ta
+    PRINT gross
+END FUNCTION
 
-FETCH all employees from database
 
-IF emp_id is found THEN
-    DISPLAY employee_name
-    DISPLAY basic_salary
+INPUT employee_id
 
-    HRA ← 0.15 × basic_salary
-    DA  ← 0.10 × basic_salary
-    TA  ← 0.20 × basic_salary
+TRY
+    employee_id ← INTEGER(employee_id)
+CATCH error
+    employee_id ← NONE
+END TRY
 
-    gross_salary ← basic_salary + HRA + DA + TA
 
-    DISPLAY HRA, DA, TA
-    DISPLAY gross_salary
-ELSE
-    DISPLAY "ID not found"
+FOR each emp IN database()
+
+    IF emp.id = employee_id THEN
+        PRINT emp.name, emp.basic_salary
+        CALL salary(emp.basic_salary)
+        STOP LOOP
+    END IF
+
+END FOR
+
+
+IF employee_id = NONE THEN
+    PRINT "ID not found"
+ELSE IF employee_id > 5 THEN
+    PRINT "No Input"
 END IF
-
-STOP
